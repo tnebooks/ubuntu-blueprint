@@ -87,8 +87,7 @@ sudo ./optimize_pc.sh physics
 ```bash
 sudo ./optimize_pc.sh physics chemistry
 
-```
-
+`
 
 ### 4. Review the Output
 
@@ -98,3 +97,56 @@ Once completed, the script outputs a comprehensive transaction record detailing 
 cat pc_management.log
 
 ```
+
+## 🗑️ System Cleanup & Factory Reset
+
+
+The `cleanup_pc.sh` script acts as a destructive rollback engine. It treats your local machine like a disposable environment—allowing you to tear down specific modules or completely reset your operating system back to its original factory defaults (similar to a Docker Desktop reset).
+
+### How it Works
+1. **Uninstalls Added Apps:** Reads your `install.properties` files and completely purges those applications.
+2. **Restores Bloatware/Defaults:** Reads your `purge.properties` files and re-installs the core system packages that were removed during optimization.
+3. **Deep Cleans Leftovers:** Automatically runs an aggressive `autoremove --purge` and clears the local `apt` cache to eliminate orphan library dependencies.
+4. **Wipes the Blueprints:** Truncates the targeted `install.properties` files back to a blank canvas so you can start fresh.
+   
+### Usage Instructions
+
+Before running the script, ensure it has execution permissions:
+```bash
+chmod +x cleanup_pc.sh
+
+```
+
+#### 1. Targeted Profile Cleanup
+
+If you finished a specific project or semester and want to wipe out only the tools associated with specific modules (e.g., removing chemistry tools but keeping everything else intact):
+
+```bash
+sudo ./cleanup_pc.sh chemistry
+
+```
+
+*To remove multiple profiles at once:*
+
+```bash
+sudo ./cleanup_pc.sh physics chemistry
+
+```
+
+#### 2. Full Factory Reset (The "Clean Slate")
+
+To completely undo all modifications, restore all original Ubuntu default software, purge all custom applications, and clear out every single `install.properties` file across the repository, run the script **without any arguments**:
+
+```bash
+sudo ./cleanup_pc.sh
+
+```
+
+---
+
+### ⚠️ Important Notes
+
+* **Destructive Action:** Running this script with no arguments will clear the contents of your `install.properties` files. Back up your properties files if you wish to reuse those specific application lists later.
+* **Log Tracking:** Every single uninstallation, restoration, or error is cleanly caught and saved to `./pc_cleanup.log` for debugging.
+
+
