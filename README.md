@@ -86,8 +86,7 @@ sudo ./optimize_pc.sh physics
 * **For a Physics & Chemistry Machine:**
 ```bash
 sudo ./optimize_pc.sh physics chemistry
-
-`
+```
 
 ### 4. Review the Output
 
