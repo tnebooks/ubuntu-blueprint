@@ -1,6 +1,6 @@
-# Edubuntu Workstation Provisioning Tool
+# Ubuntu Workstation Provisioning Tool
 
-This project provides an automated, configuration-driven system to optimize stock Edubuntu/Ubuntu installations for specific school labs (like Physics or Chemistry).
+This project provides an automated, configuration-driven system to optimize stock Ubuntu/Ubuntu installations for specific school labs (like Physics or Chemistry).
 
 It uses a **base + profile architecture** to remove generic clutter (like desktop games or preschool apps) and install specialized scientific tools in a single command.
 
@@ -51,9 +51,10 @@ Follow these quick steps to deploy the provisioning suite on a target workstatio
 Clone the repository to the machine you want to configure:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
-
+wget https://github.com/tnebooks/ubuntu-blueprint/archive/HEAD.zip
+unzip HEAD.zip
+mv ubuntu-blueprint-* ubuntu-blueprint
+cd ubuntu-blueprint
 ```
 
 ### 2. Grant Execution Permissions
